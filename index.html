@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Award-winning creative agency specializing in branding, packaging design, and digital campaigns. 700+ clients, 8+ years of excellence.">
+    <meta name="keywords" content="creative agency, branding, packaging design, digital marketing, campaigns">
+    <meta property="og:title" content="Toya Studio - Premium Branding & Design Agency">
+    <meta property="og:description" content="Transform your brand with cutting-edge design and strategic creativity">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/images/toya-logo.svg">
+    <link rel="icon" type="image/svg+xml" href="assets/images/toya-logo.svg">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GP6N5FXLSC"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-GP6N5FXLSC');
+    </script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Toya Studio - Premium Branding & Design Agency</title>
+    <link rel="stylesheet" href="css/main.css">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="assets/images/toya-logo.svg" as="image">
+    
+    <script>
+        // Redirect to loading page on first visit
+        if (!sessionStorage.getItem('hasSeenLoading')) {
+            sessionStorage.setItem('hasSeenLoading', 'true');
+            window.location.href = 'loading.html';
+        }
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav__container">
+            <a href="#home" class="nav__logo">
+                <img src="assets/images/toya-logo.svg" alt="Toya Studio Logo" class="nav__logo-img">
+                <span>TOYA STUDIO</span>
+            </a>
+            <div class="nav__menu" id="navMenu">
+                <ul class="nav__list">
+                    <li><a href="#home" class="nav__link">Home</a></li>
+                    <li><a href="#portfolio" class="nav__link">Portfolio</a></li>
+                    <li><a href="#services" class="nav__link">Services</a></li>
+                    <li><a href="#clients" class="nav__link">Clients</a></li>
+                    <li><a href="#about" class="nav__link">About</a></li>
+                    <li><a href="#contact" class="nav__link nav__link--cta">Contact</a></li>
+                </ul>
+            </div>
+            <div class="nav__toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero__container">
+            <div class="hero__content">
+                <h1 class="hero__title">
+                    <span class="hero__title-line">Creative Studio</span>
+                    <span class="hero__title-line">That Delivers</span>
+                </h1>
+                <p class="hero__subtitle">We specialize in strategic branding, packaging design, and marketing solutions that make your brand stand out</p>
+                <a href="#contact" class="btn btn--primary">Get In Touch</a>
+            </div>
+            <div class="hero__3d" id="hero3d">
+                <div class="hero__video-container" id="videoContainer">
+                    <iframe 
+                        src="https://player.vimeo.com/video/1019704845?h=0&autoplay=1&loop=1&autopause=0&muted=1&title=0&byline=0&portrait=0&background=1" 
+                        frameborder="0" 
+                        allow="autoplay; fullscreen; picture-in-picture" 
+                        allowfullscreen
+                        title="Toya Studio Showreel"
+                        class="hero__video"
+                        id="heroVideo"
+                        style="position:absolute;top:0;left:0;width:100%;height:100%;">
+                    </iframe>
+                    <div class="video-placeholder" style="position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg, #EB3223 0%, #c72818 100%);display:flex;align-items:center;justify-content:center;z-index:0;">
+                        <img src="assets/images/toya-logo.svg" alt="Toya Studio" style="width:150px;height:150px;opacity:0.3;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats__grid">
+                <div class="stats__item">
+                    <div class="stats__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <h3 class="stats__number" data-target="700">0</h3>
+                    <p class="stats__label">Happy Clients</p>
+                    <div class="stats__bar">
+                        <div class="stats__bar-fill" data-width="95"></div>
+                    </div>
+                </div>
+                <div class="stats__item">
+                    <div class="stats__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12 6 12 12 16 14"/>
+                        </svg>
+                    </div>
+                    <h3 class="stats__number" data-target="8">0</h3>
+                    <p class="stats__label">Years Experience</p>
+                    <div class="stats__bar">
+                        <div class="stats__bar-fill" data-width="80"></div>
+                    </div>
+                </div>
+                <div class="stats__item">
+                    <div class="stats__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                        </svg>
+                    </div>
+                    <h3 class="stats__number" data-target="1200">0</h3>
+                    <p class="stats__label">Projects Completed</p>
+                    <div class="stats__bar">
+                        <div class="stats__bar-fill" data-width="100"></div>
+                    </div>
+                </div>
+                <div class="stats__item">
+                    <div class="stats__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="stats__number" data-target="15">0</h3>
+                    <p class="stats__label">Industry Awards</p>
+                    <div class="stats__bar">
+                        <div class="stats__bar-fill" data-width="75"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title">Our Products</h2>
+                <p class="section__subtitle">Showcasing our best work in branding, packaging, and campaigns</p>
+            </div>
+            
+            <div class="portfolio__filters">
+                <button class="filter__btn active" data-filter="all">All Products</button>
+                <button class="filter__btn" data-filter="branding">Branding</button>
+                <button class="filter__btn" data-filter="packaging">Packaging</button>
+                <button class="filter__btn" data-filter="campaigns">Campaigns</button>
+            </div>
+
+            <div class="portfolio__grid" id="portfolioGrid">
+                <!-- Products will be loaded here -->
+            </div>
+            
+            <div class="portfolio__load-more">
+                <button class="btn btn--primary" id="loadMoreBtn">عرض المزيد</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title">Our Services</h2>
+                <p class="section__subtitle">Comprehensive creative solutions for modern brands</p>
+            </div>
+
+            <div class="services__grid">
+                <div class="service__card">
+                    <div class="service__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                            <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <h3 class="service__title">Brand Identity</h3>
+                    <p class="service__description">Complete brand systems including logo design, visual identity, brand guidelines, and strategic positioning that resonates with your audience.</p>
+                </div>
+
+                <div class="service__card">
+                    <div class="service__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2"/>
+                            <path d="M9 3v18M3 9h18M3 15h18"/>
+                        </svg>
+                    </div>
+                    <h3 class="service__title">Packaging</h3>
+                    <p class="service__description">Strategic packaging that captures attention and drives purchase decisions. We create designs that are consumer-driven, retail-ready, and communicate your brand value instantly.</p>
+                </div>
+
+                <div class="service__card">
+                    <div class="service__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 6v6l4 2"/>
+                        </svg>
+                    </div>
+                    <h3 class="service__title">Marketing</h3>
+                    <p class="service__description">Comprehensive marketing strategies from social media to print collateral. We help your brand show up consistently and effectively across all touchpoints.</p>
+                </div>
+
+                <div class="service__card">
+                    <div class="service__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                            <line x1="12" y1="22.08" x2="12" y2="12"/>
+                        </svg>
+                    </div>
+                    <h3 class="service__title">Creative Production</h3>
+                    <p class="service__description">Full-service production including photography, videography, 3D rendering, and motion graphics for all your creative needs.</p>
+                </div>
+
+                <div class="service__card">
+                    <div class="service__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="3" width="20" height="14" rx="2"/>
+                            <line x1="8" y1="21" x2="16" y2="21"/>
+                            <line x1="12" y1="17" x2="12" y2="21"/>
+                        </svg>
+                    </div>
+                    <h3 class="service__title">Web Design</h3>
+                    <p class="service__description">Modern, responsive websites and digital experiences that combine stunning design with seamless user experience and performance.</p>
+                </div>
+
+                <div class="service__card">
+                    <div class="service__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <h3 class="service__title">Brand Strategy</h3>
+                    <p class="service__description">Strategic consulting to define your brand positioning, messaging, and go-to-market strategy for maximum impact and growth.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Section -->
+    <section class="clients" id="clients">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title">Our Partners</h2>
+                <p class="section__subtitle">Trusted partnerships with leading brands and companies</p>
+            </div>
+
+            <div class="clients__logos" id="partnersGrid"></div>
+
+            <div class="testimonials">
+                <div class="testimonial__card">
+                    <p class="testimonial__text">"Apex transformed our brand identity completely. Their creative vision and strategic approach helped us stand out in a crowded market. Exceptional work!"</p>
+                    <div class="testimonial__author">
+                        <strong>Sarah Mitchell</strong>
+                        <span>CEO, TechNova</span>
+                    </div>
+                </div>
+                <div class="testimonial__card">
+                    <p class="testimonial__text">"The packaging design they created for our product line exceeded all expectations. Sales increased by 40% in the first quarter. Highly recommend!"</p>
+                    <div class="testimonial__author">
+                        <strong>James Rodriguez</strong>
+                        <span>Marketing Director, Pure Essence</span>
+                    </div>
+                </div>
+                <div class="testimonial__card">
+                    <p class="testimonial__text">"Working with Apex was a game-changer. Their attention to detail and creative excellence brought our vision to life in ways we never imagined."</p>
+                    <div class="testimonial__author">
+                        <strong>Emily Chen</strong>
+                        <span>Founder, Urban Craft</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about__content">
+                <div class="about__text">
+                    <h2 class="section__title">About Toya</h2>
+                    <p>Toya Studio is a leading digital marketing and packaging solutions company. Our expertise lies in empowering businesses to excel in today's fast-paced market through strategic, visually captivating campaigns and design.</p>
+                    <p>Whether it's digital marketing, branding, or packaging, we provide comprehensive solutions that elevate brands and drive success.</p>
+                    <div class="about__values">
+                        <div class="value__item">
+                            <h4>Innovation First</h4>
+                            <p>Pushing creative boundaries with every project</p>
+                        </div>
+                        <div class="value__item">
+                            <h4>Client Partnership</h4>
+                            <p>Your success is our success</p>
+                        </div>
+                        <div class="value__item">
+                            <h4>Excellence Always</h4>
+                            <p>Uncompromising quality in everything we do</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about__image">
+                    <div class="about__image-placeholder">
+                        <img src="assets/images/toya-logo.svg" alt="Toya Studio" class="about__logo-large">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact__content">
+                <div class="contact__info">
+                    <h2 class="section__title">Let's Create Together</h2>
+                    <p class="contact__description">Ready to elevate your brand? Get in touch and let's discuss how we can bring your vision to life.</p>
+                    
+                    <div class="contact__methods">
+                        <a href="mailto:sales@toya-studio.com" class="contact__method">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                            <span>sales@toya-studio.com</span>
+                        </a>
+                        <a href="tel:+201116111860" class="contact__method">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                            </svg>
+                            <span>+20 1116111860</span>
+                        </a>
+                        <a href="https://wa.me/201116111860" class="contact__method" target="_blank">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                            </svg>
+                            <span>WhatsApp Us</span>
+                        </a>
+                        <div class="contact__method">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                            <span>2 Taher Al Dahi, El-Bostan, Heliopolis, Cairo Governorate</span>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="contact__form" id="contactForm">
+                    <div class="form__group">
+                        <input type="text" id="name" name="name" required>
+                        <label for="name">Your Name</label>
+                    </div>
+                    <div class="form__group">
+                        <input type="email" id="email" name="email" required>
+                        <label for="email">Email Address</label>
+                    </div>
+                    <div class="form__group">
+                        <input type="text" id="company" name="company">
+                        <label for="company">Company (Optional)</label>
+                    </div>
+                    <div class="form__group">
+                        <select id="service" name="service" required>
+                            <option value="">Select a Service</option>
+                            <option value="branding">Brand Identity</option>
+                            <option value="packaging">Packaging Design</option>
+                            <option value="campaigns">Digital Campaigns</option>
+                            <option value="production">Creative Production</option>
+                            <option value="web">Web Design</option>
+                            <option value="strategy">Brand Strategy</option>
+                        </select>
+                        <label for="service">Service Needed</label>
+                    </div>
+                    <div class="form__group">
+                        <textarea id="message" name="message" rows="4" required></textarea>
+                        <label for="message">Project Details</label>
+                    </div>
+                    <button type="submit" class="btn btn--primary btn--full">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__brand">
+                    <h3>TOYA STUDIO</h3>
+                    <p>Crafting brands that inspire</p>
+                </div>
+                <div class="footer__links">
+                    <div class="footer__column">
+                        <h4>Services</h4>
+                        <a href="#services">Brand Identity</a>
+                        <a href="#services">Packaging Design</a>
+                        <a href="#services">Digital Campaigns</a>
+                        <a href="#services">Creative Production</a>
+                    </div>
+                    <div class="footer__column">
+                        <h4>Company</h4>
+                        <a href="#about">About Us</a>
+                        <a href="#portfolio">Portfolio</a>
+                        <a href="#clients">Clients</a>
+                        <a href="#contact">Contact</a>
+                    </div>
+                    <div class="footer__column">
+                        <h4>Follow Us</h4>
+                        <a href="https://www.facebook.com/toya.studio.eg" target="_blank">Facebook</a>
+                        <a href="https://www.instagram.com/toyastudioeg/" target="_blank">Instagram</a>
+                        <a href="https://www.linkedin.com/company/toyastudio" target="_blank">LinkedIn</a>
+                        <a href="https://www.tiktok.com/@toyastudio" target="_blank">TikTok</a>
+                        <a href="https://wa.me/2001010402908" target="_blank">WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2026 Toya Studio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m18 15-6-6-6 6"/>
+        </svg>
+    </button>
+
+    <!-- Load libraries first -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+    
+    <!-- Firebase -->
+    <script type="module" src="js/firebase-config.js"></script>
+    
+    <!-- Load app scripts -->
+    <script defer src="js/portfolio-data.js"></script>
+    <script defer src="js/3d-scene.js"></script>
+    <script defer src="js/main.js"></script>
+</body>
+</html>

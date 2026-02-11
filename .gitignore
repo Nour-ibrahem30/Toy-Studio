@@ -1,0 +1,30 @@
+# OS Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor Files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Logs
+*.log
+npm-debug.log*
+
+# Dependencies (if using build tools)
+node_modules/
+package-lock.json
+yarn.lock
+
+# Build outputs (if using preprocessors)
+dist/
+build/
+*.min.css
+*.min.js
+
+# Temporary files
+*.tmp
+*.temp
+.cache/

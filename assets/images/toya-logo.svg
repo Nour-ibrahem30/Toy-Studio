@@ -1,0 +1,13 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background with rounded corners -->
+  <rect width="200" height="200" rx="40" fill="#EB3223"/>
+  
+  <!-- TOYA text -->
+  <text x="100" y="85" font-family="Arial, sans-serif" font-size="42" font-weight="bold" fill="white" text-anchor="middle">TOYA</text>
+  
+  <!-- STUDIO text -->
+  <text x="100" y="125" font-family="Arial, sans-serif" font-size="42" font-weight="bold" fill="white" text-anchor="middle">STUDIO</text>
+  
+  <!-- Decorative dot -->
+  <circle cx="175" cy="125" r="8" fill="white"/>
+</svg>

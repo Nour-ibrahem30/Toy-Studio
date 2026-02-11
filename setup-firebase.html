@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firebase Setup - Toya Studio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 800px;
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
+            text-align: center;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .step {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            border-left: 5px solid #667eea;
+        }
+
+        .step-number {
+            display: inline-block;
+            width: 35px;
+            height: 35px;
+            background: #667eea;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 35px;
+            font-weight: bold;
+            margin-left: 1rem;
+        }
+
+        .step-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .step-content {
+            color: #666;
+            line-height: 1.8;
+            margin-right: 50px;
+        }
+
+        .code-block {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            direction: ltr;
+            text-align: left;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin: 0.5rem;
+        }
+
+        .btn:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-success {
+            background: #10b981;
+        }
+
+        .btn-success:hover {
+            background: #059669;
+        }
+
+        .status {
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            display: none;
+        }
+
+        .status.success {
+            background: #d1fae5;
+            color: #065f46;
+            border: 2px solid #10b981;
+        }
+
+        .status.error {
+            background: #fee2e2;
+            color: #991b1b;
+            border: 2px solid #ef4444;
+        }
+
+        .status.info {
+            background: #dbeafe;
+            color: #1e40af;
+            border: 2px solid #3b82f6;
+        }
+
+        .actions {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 2px solid #e5e7eb;
+        }
+
+        .checklist {
+            list-style: none;
+            padding: 0;
+        }
+
+        .checklist li {
+            padding: 0.75rem;
+            margin: 0.5rem 0;
+            background: white;
+            border-radius: 8px;
+            border: 2px solid #e5e7eb;
+        }
+
+        .checklist li.done {
+            background: #d1fae5;
+            border-color: #10b981;
+        }
+
+        .checklist li::before {
+            content: '☐';
+            margin-left: 0.5rem;
+            font-size: 1.5rem;
+            color: #9ca3af;
+        }
+
+        .checklist li.done::before {
+            content: '✓';
+            color: #10b981;
+        }
+
+        .highlight {
+            background: #fef3c7;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 إعداد Firebase التلقائي</h1>
+        <p class="subtitle">اتبع هذه الخطوات البسيطة لتفعيل قاعدة البيانات</p>
+
+        <div class="step">
+            <span class="step-number">1</span>
+            <div class="step-title">افتح Firebase Console</div>
+            <div class="step-content">
+                <p>اذهب إلى Firebase Console واختر المشروع</p>
+                <a href="https://console.firebase.google.com/project/toya-studio-51918/firestore" target="_blank" class="btn">
+                    افتح Firebase Console
+                </a>
+            </div>
+        </div>
+
+        <div class="step">
+            <span class="step-number">2</span>
+            <div class="step-title">فعّل Firestore Database</div>
+            <div class="step-content">
+                <p>إذا لم يكن مفعّلاً، اضغط على <span class="highlight">Create Database</span></p>
+                <ul class="checklist">
+                    <li>اختر <strong>Start in test mode</strong></li>
+                    <li>اختر الموقع: <strong>europe-west1</strong> أو الأقرب لك</li>
+                    <li>اضغط <strong>Enable</strong></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step">
+            <span class="step-number">3</span>
+            <div class="step-title">ضبط القواعد (Rules)</div>
+            <div class="step-content">
+                <p>اذهب إلى تبويب <span class="highlight">Rules</span> وانسخ هذه القواعد:</p>
+                <div class="code-block">rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /contact_submissions/{document} {
+      allow create: if true;
+      allow read, update, delete: if request.auth != null;
+    }
+  }
+}</div>
+                <button class="btn" onclick="copyRules()">📋 نسخ القواعد</button>
+                <p style="margin-top: 1rem;">ثم اضغط <span class="highlight">Publish</span></p>
+            </div>
+        </div>
+
+        <div class="step">
+            <span class="step-number">4</span>
+            <div class="step-title">اختبر الاتصال</div>
+            <div class="step-content">
+                <p>اضغط على الزر أدناه لاختبار الاتصال بـ Firebase:</p>
+                <button class="btn btn-success" onclick="testConnection()">🧪 اختبار الاتصال</button>
+                <div id="status" class="status"></div>
+            </div>
+        </div>
+
+        <div class="actions">
+            <h3 style="margin-bottom: 1rem;">✅ انتهيت؟</h3>
+            <a href="index.html" class="btn btn-success">العودة إلى الموقع</a>
+            <a href="admin.html" class="btn">فتح لوحة التحكم</a>
+        </div>
+    </div>
+
+    <script type="module">
+        import { db, initializeFirestore, saveContactForm } from './js/firebase-config.js';
+        import { collection, getDocs } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
+
+        window.copyRules = function() {
+            const rules = `rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /contact_submissions/{document} {
+      allow create: if true;
+      allow read, update, delete: if request.auth != null;
+    }
+  }
+}`;
+            
+            navigator.clipboard.writeText(rules).then(() => {
+                alert('✅ تم نسخ القواعد! الصقها في Firebase Console');
+            }).catch(() => {
+                alert('❌ فشل النسخ. انسخ القواعد يدوياً');
+            });
+        };
+
+        window.testConnection = async function() {
+            const statusDiv = document.getElementById('status');
+            statusDiv.style.display = 'block';
+            statusDiv.className = 'status info';
+            statusDiv.innerHTML = '⏳ جاري الاختبار...';
+
+            try {
+                // Test 1: Initialize Firestore
+                console.log('Testing Firestore initialization...');
+                const initResult = await initializeFirestore();
+                
+                if (!initResult.success) {
+                    throw new Error('Failed to initialize Firestore');
+                }
+
+                // Test 2: Try to save a test document
+                console.log('Testing document creation...');
+                const testData = {
+                    name: 'Test User',
+                    email: 'test@example.com',
+                    service: 'branding',
+                    message: 'This is a test message from setup page',
+                    company: 'Test Company'
+                };
+
+                const result = await saveContactForm(testData);
+
+                if (result.success) {
+                    statusDiv.className = 'status success';
+                    statusDiv.innerHTML = `
+                        <strong>✅ نجح الاتصال!</strong><br>
+                        تم إنشاء Document تجريبي بنجاح<br>
+                        Document ID: ${result.id}<br>
+                        <small>يمكنك الآن استخدام الموقع بشكل طبيعي</small>
+                    `;
+                    
+                    // Mark steps as done
+                    document.querySelectorAll('.checklist li').forEach(li => {
+                        li.classList.add('done');
+                    });
+                } else {
+                    throw new Error(result.error || 'Unknown error');
+                }
+
+            } catch (error) {
+                console.error('Test failed:', error);
+                statusDiv.className = 'status error';
+                
+                let errorMessage = error.message;
+                let solution = '';
+
+                if (error.code === 'permission-denied' || errorMessage.includes('permission')) {
+                    solution = '<br><br><strong>الحل:</strong> تأكد من نشر القواعد في Firebase Console (الخطوة 3)';
+                } else if (error.code === 'not-found' || errorMessage.includes('not found')) {
+                    solution = '<br><br><strong>الحل:</strong> تأكد من تفعيل Firestore في Firebase Console (الخطوة 2)';
+                } else if (errorMessage.includes('network') || errorMessage.includes('unavailable')) {
+                    solution = '<br><br><strong>الحل:</strong> تحقق من اتصال الإنترنت';
+                }
+
+                statusDiv.innerHTML = `
+                    <strong>❌ فشل الاختبار</strong><br>
+                    ${errorMessage}
+                    ${solution}
+                `;
+            }
+        };
+
+        // Auto-test on page load (optional)
+        console.log('Setup page loaded. Firebase config ready.');
+    </script>
+</body>
+</html>

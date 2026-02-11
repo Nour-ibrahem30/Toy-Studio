@@ -1,0 +1,22 @@
+{
+  "name": "apex-creative-studio",
+  "version": "1.0.0",
+  "description": "Premium creative agency website with 3D animations and interactive portfolio",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve",
+    "dev": "npx serve -l 3000"
+  },
+  "keywords": [
+    "creative-agency",
+    "portfolio",
+    "3d-animation",
+    "threejs",
+    "gsap",
+    "responsive-design"
+  ],
+  "author": "Apex Creative Studio",
+  "license": "MIT",
+  "devDependencies": {},
+  "dependencies": {}
+}
