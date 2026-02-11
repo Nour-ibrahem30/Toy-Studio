@@ -1,0 +1,18 @@
+{
+  "name": "Toya Studio - Premium Branding & Design Agency",
+  "short_name": "Toya Studio",
+  "description": "Award-winning creative agency specializing in branding, packaging design, and digital campaigns",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#EB3223",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "assets/images/toya-logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

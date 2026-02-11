@@ -366,12 +366,34 @@ function initPortfolio() {
 
         console.log('Rendering:', projectsToShow.length, 'of', filteredProjects.length, 'projects');
 
-        // Clear and render new items directly (no fade effects)
+        // Clear and render new items with lazy loading
         portfolioGrid.innerHTML = projectsToShow.map(project => `
             <div class="portfolio__item" data-category="${project.category}">
-                <img src="${project.image}" alt="${project.title}" class="portfolio__image" loading="lazy">
+                <img data-src="${project.image}" alt="${project.title}" class="portfolio__image" loading="lazy">
             </div>
         `).join('');
+
+        // Implement Intersection Observer for lazy loading
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    if (img.dataset.src) {
+                        img.src = img.dataset.src;
+                        img.removeAttribute('data-src');
+                        img.classList.add('loaded');
+                    }
+                    observer.unobserve(img);
+                }
+            });
+        }, {
+            rootMargin: '50px'
+        });
+
+        // Observe all images
+        document.querySelectorAll('.portfolio__image[data-src]').forEach(img => {
+            imageObserver.observe(img);
+        });
 
         // Show/hide load more button
         if (loadMoreBtn) {
@@ -429,14 +451,36 @@ function initPartners() {
         return;
     }
     
-    // Render partners
+    // Render partners with lazy loading
     partnersGrid.innerHTML = partnerImages.map(partner => `
         <div class="partner__item">
-            <img src="${partner.image}" alt="${partner.title}" class="partner__image" loading="lazy">
+            <img data-src="${partner.image}" alt="${partner.title}" class="partner__image" loading="lazy">
         </div>
     `).join('');
     
     console.log('Partners HTML rendered. Items count:', partnersGrid.children.length);
+    
+    // Implement Intersection Observer for lazy loading
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                if (img.dataset.src) {
+                    img.src = img.dataset.src;
+                    img.removeAttribute('data-src');
+                    img.classList.add('loaded');
+                }
+                observer.unobserve(img);
+            }
+        });
+    }, {
+        rootMargin: '50px'
+    });
+
+    // Observe all partner images
+    document.querySelectorAll('.partner__image[data-src]').forEach(img => {
+        imageObserver.observe(img);
+    });
     
     // Animate partner items
     if (typeof gsap !== 'undefined') {

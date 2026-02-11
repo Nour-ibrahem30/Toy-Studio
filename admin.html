@@ -488,6 +488,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <!-- Amiri Arabic Font for jsPDF -->
+    <script src="https://cdn.jsdelivr.net/npm/jspdf-arabic@latest/dist/jspdf-arabic.min.js"></script>
 
     <script type="module">
         import { db } from './js/firebase-config.js';
@@ -850,8 +852,14 @@
                 const { jsPDF } = window.jspdf;
                 const doc = new jsPDF('l', 'mm', 'a4'); // landscape orientation
                 
-                // Set font for better Arabic support
-                doc.setFont('helvetica');
+                // Add Arabic font support
+                if (typeof jsPDFArabic !== 'undefined') {
+                    doc.addFileToVFS('Amiri-Regular.ttf', jsPDFArabic.amiriFont);
+                    doc.addFont('Amiri-Regular.ttf', 'Amiri', 'normal');
+                    doc.setFont('Amiri');
+                } else {
+                    doc.setFont('helvetica');
+                }
                 
                 // Add header with logo area
                 doc.setFillColor(235, 50, 35);
@@ -863,14 +871,14 @@
                 doc.text('Toya Studio', 15, 15);
                 
                 doc.setFontSize(14);
-                doc.text('Contact Messages Report', 15, 25);
+                doc.text('تقرير رسائل التواصل', 15, 25);
                 
                 // Add date and stats
                 doc.setFontSize(10);
                 const totalCount = allSubmissions.length;
                 const newCount = allSubmissions.filter(s => s.status === 'new').length;
-                doc.text(`Generated: ${new Date().toLocaleString('ar-EG')}`, doc.internal.pageSize.getWidth() - 15, 15, { align: 'right' });
-                doc.text(`Total: ${totalCount} | New: ${newCount}`, doc.internal.pageSize.getWidth() - 15, 25, { align: 'right' });
+                doc.text(`تاريخ الإنشاء: ${new Date().toLocaleString('ar-EG')}`, doc.internal.pageSize.getWidth() - 15, 15, { align: 'right' });
+                doc.text(`الإجمالي: ${totalCount} | جديد: ${newCount}`, doc.internal.pageSize.getWidth() - 15, 25, { align: 'right' });
                 
                 // Reset text color for table
                 doc.setTextColor(0, 0, 0);
@@ -886,19 +894,19 @@
                     
                     // Get service name in Arabic
                     const serviceNames = {
-                        'branding': 'Brand Identity',
-                        'packaging': 'Packaging Design',
-                        'campaigns': 'Digital Campaigns',
-                        'production': 'Creative Production',
-                        'web': 'Web Design',
-                        'strategy': 'Brand Strategy'
+                        'branding': 'هوية تجارية',
+                        'packaging': 'تصميم التغليف',
+                        'campaigns': 'حملات رقمية',
+                        'production': 'إنتاج إبداعي',
+                        'web': 'تصميم مواقع',
+                        'strategy': 'استراتيجية العلامة'
                     };
                     
                     // Get status in Arabic
                     const statusNames = {
-                        'new': 'New',
-                        'read': 'Read',
-                        'replied': 'Replied'
+                        'new': 'جديد',
+                        'read': 'مقروء',
+                        'replied': 'تم الرد'
                     };
                     
                     return [
@@ -915,21 +923,22 @@
                 
                 // Add table with enhanced styling
                 doc.autoTable({
-                    head: [['#', 'Date', 'Name', 'Email', 'Company', 'Service', 'Status', 'Message']],
+                    head: [['#', 'التاريخ', 'الاسم', 'البريد الإلكتروني', 'الشركة', 'الخدمة', 'الحالة', 'الرسالة']],
                     body: tableData,
                     startY: 40,
                     styles: {
-                        fontSize: 8,
+                        fontSize: 10,
                         cellPadding: 3,
                         lineColor: [220, 220, 220],
                         lineWidth: 0.1,
-                        font: 'helvetica'
+                        font: typeof jsPDFArabic !== 'undefined' ? 'Amiri' : 'helvetica',
+                        halign: 'right'
                     },
                     headStyles: {
                         fillColor: [235, 50, 35],
                         textColor: 255,
                         fontStyle: 'bold',
-                        fontSize: 9,
+                        fontSize: 11,
                         halign: 'center'
                     },
                     alternateRowStyles: {
@@ -949,26 +958,35 @@
                         // Color code status column
                         if (data.column.index === 6 && data.section === 'body') {
                             const status = tableData[data.row.index][6];
-                            if (status === 'New') {
+                            if (status === 'جديد') {
                                 doc.setFillColor(16, 185, 129);
                                 doc.rect(data.cell.x, data.cell.y, data.cell.width, data.cell.height, 'F');
                                 doc.setTextColor(255, 255, 255);
+                                if (typeof jsPDFArabic !== 'undefined') {
+                                    doc.setFont('Amiri');
+                                }
                                 doc.text(status, data.cell.x + data.cell.width / 2, data.cell.y + data.cell.height / 2, { 
                                     align: 'center',
                                     baseline: 'middle'
                                 });
-                            } else if (status === 'Read') {
+                            } else if (status === 'مقروء') {
                                 doc.setFillColor(59, 130, 246);
                                 doc.rect(data.cell.x, data.cell.y, data.cell.width, data.cell.height, 'F');
                                 doc.setTextColor(255, 255, 255);
+                                if (typeof jsPDFArabic !== 'undefined') {
+                                    doc.setFont('Amiri');
+                                }
                                 doc.text(status, data.cell.x + data.cell.width / 2, data.cell.y + data.cell.height / 2, { 
                                     align: 'center',
                                     baseline: 'middle'
                                 });
-                            } else if (status === 'Replied') {
+                            } else if (status === 'تم الرد') {
                                 doc.setFillColor(139, 92, 246);
                                 doc.rect(data.cell.x, data.cell.y, data.cell.width, data.cell.height, 'F');
                                 doc.setTextColor(255, 255, 255);
+                                if (typeof jsPDFArabic !== 'undefined') {
+                                    doc.setFont('Amiri');
+                                }
                                 doc.text(status, data.cell.x + data.cell.width / 2, data.cell.y + data.cell.height / 2, { 
                                     align: 'center',
                                     baseline: 'middle'
@@ -991,8 +1009,11 @@
                     // Page number
                     doc.setFontSize(8);
                     doc.setTextColor(100, 100, 100);
+                    if (typeof jsPDFArabic !== 'undefined') {
+                        doc.setFont('Amiri');
+                    }
                     doc.text(
-                        `Page ${i} of ${pageCount}`,
+                        `صفحة ${i} من ${pageCount}`,
                         doc.internal.pageSize.getWidth() / 2,
                         doc.internal.pageSize.getHeight() - 10,
                         { align: 'center' }

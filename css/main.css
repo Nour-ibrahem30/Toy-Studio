@@ -571,6 +571,15 @@ body {
     object-fit: cover;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     display: block;
+    background: linear-gradient(135deg, #fff5f4 0%, #ffffff 100%);
+}
+
+.portfolio__image[data-src] {
+    opacity: 0;
+}
+
+.portfolio__image.loaded {
+    opacity: 1;
 }
 
 .portfolio__item:hover .portfolio__image {
@@ -711,6 +720,15 @@ body {
     object-fit: cover;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     display: block;
+    background: linear-gradient(135deg, #fff5f4 0%, #ffffff 100%);
+}
+
+.partner__image[data-src] {
+    opacity: 0;
+}
+
+.partner__image.loaded {
+    opacity: 1;
 }
 
 .partner__item:hover .partner__image {
