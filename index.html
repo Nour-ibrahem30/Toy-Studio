@@ -8,6 +8,8 @@
     <meta name="author" content="Toya Studio">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#EB3223">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -46,8 +48,8 @@
     <noscript><link rel="stylesheet" href="css/main.css"></noscript>
     
     <!-- Preload fonts -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" as="style">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.onerror=null;this.rel='stylesheet';this.href='data:text/css,body{font-family:system-ui,sans-serif}'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"></noscript>
     
     <!-- Preload critical resources -->
     <link rel="preload" href="assets/images/toya-logo.svg" as="image" fetchpriority="high">
@@ -91,7 +93,10 @@
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'G-GP6N5FXLSC');
+        gtag('config', 'G-GP6N5FXLSC', {
+            'anonymize_ip': true,
+            'cookie_flags': 'SameSite=None;Secure'
+        });
     </script>
     
     <script>
@@ -105,12 +110,19 @@
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', function() {
                 navigator.serviceWorker.register('/sw.js').then(function(registration) {
-                    console.log('ServiceWorker registered: ', registration);
-                }, function(err) {
-                    console.log('ServiceWorker registration failed: ', err);
+                    console.log('ServiceWorker registered');
+                }).catch(function(err) {
+                    console.log('ServiceWorker registration failed');
                 });
             });
         }
+        
+        // Suppress third-party console errors
+        window.addEventListener('error', function(e) {
+            if (e.filename && (e.filename.includes('gtag') || e.filename.includes('analytics'))) {
+                e.preventDefault();
+            }
+        }, true);
     </script>
 </head>
 <body>
@@ -161,7 +173,8 @@
                         class="hero__video"
                         id="heroVideo"
                         loading="lazy"
-                        style="position:absolute;top:0;left:0;width:100%;height:100%;">
+                        style="position:absolute;top:0;left:0;width:100%;height:100%;"
+                        onerror="this.style.display='none'">
                     </iframe>
                     <div class="video-placeholder" style="position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg, #EB3223 0%, #c72818 100%);display:flex;align-items:center;justify-content:center;z-index:0;">
                         <img src="assets/images/toya-logo.svg" alt="Toya Studio" width="150" height="150" style="width:150px;height:150px;opacity:0.3;">
@@ -527,10 +540,10 @@
     </button>
 
     <!-- Load libraries first -->
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" crossorigin="anonymous"></script>
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" crossorigin="anonymous"></script>
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" crossorigin="anonymous"></script>
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js" crossorigin="anonymous"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" crossorigin="anonymous" integrity="sha512-dLxUelApnYxpLt6K2iomGngnHO83iUvZytA3YjDUCjT0HDOHKXnVYdf3hU4JjM8uEhxf9nD1/ey98U3t2vZ0qQ==" onerror="console.log('Three.js failed to load')"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" crossorigin="anonymous" integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug==" onerror="console.log('GSAP failed to load')"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" crossorigin="anonymous" integrity="sha512-Ic9xkERjyZ1xgJ5svx3y0u3xrvfT/uPkV99LBwe68xjy/mGtO+4eURHZBW2xW4SZbFrF1Tf090XqB+EVgXnVjw==" onerror="console.log('ScrollTrigger failed to load')"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js" crossorigin="anonymous" integrity="sha512-LQQDWPoCQVYaJC/d4B7LrHFCwhZ1K3Wp+HFwJNjZKKlm+9u4j8JKvXF5vH6m0E4Xq4qNP8VwXMvbjPFKdq0V0Q==" onerror="console.log('ScrollToPlugin failed to load')"></script>
     
     <!-- Firebase -->
     <script type="module" src="js/firebase-config.js"></script>

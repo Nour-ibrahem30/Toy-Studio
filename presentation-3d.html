@@ -1,57 +1,99 @@
 ﻿<!DOCTYPE html>
-<html lang='ar'>
+<html lang="ar" dir="rtl">
 <head>
-<meta charset='UTF-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1.0'>
-<title>Toya Studio Presentation</title>
-<link href='https://fonts.googleapis.com/css2?family=Tajawal:wght@700;900&display=swap' rel='stylesheet'>
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Tajawal',sans-serif;background:#000;overflow:hidden;color:#fff}
-.container{width:100vw;height:100vh;position:relative;perspective:1000px}
-.slide{position:absolute;width:100%;height:100%;display:flex;align-items:center;justify-content:center;opacity:0;transform:translateZ(-500px) rotateY(90deg);transition:all 1s cubic-bezier(0.16,1,0.3,1)}
-.slide.active{opacity:1;transform:translateZ(0) rotateY(0)}
-.content{text-align:center;max-width:1200px;padding:2rem}
-h1{font-size:6rem;font-weight:900;background:linear-gradient(135deg,#EB3223,#ff6b6b,#EB3223);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:2rem;animation:glow 2s infinite}
-@keyframes glow{0%,100%{filter:drop-shadow(0 0 30px #EB3223)}50%{filter:drop-shadow(0 0 60px #ff6b6b)}}
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;margin-top:3rem}
-.card{background:rgba(255,255,255,0.05);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:2rem;transition:all 0.3s}
-.card:hover{transform:translateY(-10px);border-color:#EB3223;box-shadow:0 20px 60px rgba(235,50,35,0.5)}
-.num{font-size:4rem;font-weight:900;color:#EB3223;margin-bottom:0.5rem}
-.label{font-size:1.2rem;opacity:0.8}
-.nav{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;gap:1rem;z-index:100}
-.btn{background:#EB3223;border:none;color:#fff;padding:1rem 2rem;border-radius:50px;font-size:1.2rem;font-weight:700;cursor:pointer;transition:all 0.3s;font-family:'Tajawal',sans-serif}
-.btn:hover{transform:translateY(-5px);box-shadow:0 10px 30px rgba(235,50,35,0.6)}
-.counter{position:fixed;top:2rem;right:2rem;background:rgba(255,255,255,0.1);backdrop-filter:blur(20px);padding:1rem 2rem;border-radius:50px;font-size:1.5rem;font-weight:700}
-#particles{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1}
-</style>
-</head>
-<body>
-<canvas id='particles'></canvas>
-<div class='counter'><span id='current'>1</span>/8</div>
-<div class='container' id='slides'>
-<div class='slide active'><div class='content'><div style='font-size:8rem;margin-bottom:2rem'>🚀</div><h1>TOYA STUDIO</h1><p style='font-size:2rem;opacity:0.9'>الموقع الإلكتروني الجديد</p></div></div>
-<div class='slide'><div class='content'><h1 style='font-size:4rem;margin-bottom:3rem'>📊 الأداء</h1><div class='grid'><div class='card'><div class='num'>95+</div><div class='label'>Performance</div></div><div class='card'><div class='num'>100</div><div class='label'>Best Practices</div></div><div class='card'><div class='num'>3x</div><div class='label'>أسرع</div></div><div class='card'><div class='num'>100%</div><div class='label'>Mobile</div></div></div></div></div>
-<div class='slide'><div class='content'><h1 style='font-size:4rem;margin-bottom:3rem'>✨ المميزات</h1><div class='grid' style='grid-template-columns:repeat(3,1fr)'><div class='card'><div style='font-size:3rem;margin-bottom:1rem'>⚡</div><h3 style='font-size:1.5rem;margin-bottom:0.5rem'>أداء فائق</h3><p style='opacity:0.8'>سرعة تحميل استثنائية</p></div><div class='card'><div style='font-size:3rem;margin-bottom:1rem'>🎨</div><h3 style='font-size:1.5rem;margin-bottom:0.5rem'>تصميم عصري</h3><p style='opacity:0.8'>واجهة مستخدم جذابة</p></div><div class='card'><div style='font-size:3rem;margin-bottom:1rem'>📱</div><h3 style='font-size:1.5rem;margin-bottom:0.5rem'>متجاوب 100%</h3><p style='opacity:0.8'>يعمل على كل الأجهزة</p></div></div></div></div>
-<div class='slide'><div class='content'><h1 style='font-size:4rem;margin-bottom:3rem'>🔍 SEO والأمان</h1><div class='grid' style='grid-template-columns:repeat(3,1fr)'><div class='card'><div style='font-size:3rem;margin-bottom:1rem'>🔍</div><h3 style='font-size:1.5rem;margin-bottom:0.5rem'>SEO محسن</h3><p style='opacity:0.8'>ظهور أفضل في محركات البحث</p></div><div class='card'><div style='font-size:3rem;margin-bottom:1rem'>🔒</div><h3 style='font-size:1.5rem;margin-bottom:0.5rem'>أمان متقدم</h3><p style='opacity:0.8'>حماية كاملة للبيانات</p></div><div class='card'><div style='font-size:3rem;margin-bottom:1rem'>📊</div><h3 style='font-size:1.5rem;margin-bottom:0.5rem'>تحليلات شاملة</h3><p style='opacity:0.8'>تتبع كامل للزوار</p></div></div></div></div>
-<div class='slide'><div class='content'><h1 style='font-size:4rem;margin-bottom:3rem'>🛠️ التقنيات</h1><div class='grid' style='grid-template-columns:repeat(3,1fr)'><div class='card'><div style='font-size:3rem'>⚙️</div><h3 style='font-size:1.3rem'>Service Worker</h3></div><div class='card'><div style='font-size:3rem'>🔥</div><h3 style='font-size:1.3rem'>Firebase</h3></div><div class='card'><div style='font-size:3rem'>🎭</div><h3 style='font-size:1.3rem'>GSAP</h3></div><div class='card'><div style='font-size:3rem'>📦</div><h3 style='font-size:1.3rem'>Lazy Loading</h3></div><div class='card'><div style='font-size:3rem'>🌐</div><h3 style='font-size:1.3rem'>PWA</h3></div><div class='card'><div style='font-size:3rem'>📈</div><h3 style='font-size:1.3rem'>Analytics</h3></div></div></div></div>
-<div class='slide'><div class='content'><h1 style='font-size:4rem;margin-bottom:3rem'>⚖️ المقارنة</h1><div style='display:grid;grid-template-columns:1fr 1fr;gap:3rem'><div class='card' style='text-align:right;padding:2.5rem'><h3 style='font-size:2rem;margin-bottom:1.5rem;color:#ff6b6b'>❌ القديم</h3><p style='margin:1rem 0;font-size:1.2rem'>أداء بطيء</p><p style='margin:1rem 0;font-size:1.2rem'>تصميم قديم</p><p style='margin:1rem 0;font-size:1.2rem'>بدون SEO</p><p style='margin:1rem 0;font-size:1.2rem'>غير متجاوب</p></div><div class='card' style='text-align:right;padding:2.5rem'><h3 style='font-size:2rem;margin-bottom:1.5rem;color:#51cf66'>✅ الجديد</h3><p style='margin:1rem 0;font-size:1.2rem'>أداء فائق</p><p style='margin:1rem 0;font-size:1.2rem'>تصميم عصري</p><p style='margin:1rem 0;font-size:1.2rem'>SEO محسن</p><p style='margin:1rem 0;font-size:1.2rem'>متجاوب 100%</p></div></div></div></div>
-<div class='slide'><div class='content'><h1 style='font-size:4rem;margin-bottom:3rem'>🎛️ لوحة التحكم</h1><div class='grid' style='grid-template-columns:repeat(3,1fr)'><div class='card'><div style='font-size:3rem;margin-bottom:1rem'>📧</div><h3 style='font-size:1.5rem;margin-bottom:0.5rem'>إدارة الرسائل</h3><p style='opacity:0.8'>عرض وتنظيم رسائل العملاء</p></div><div class='card'><div style='font-size:3rem;margin-bottom:1rem'>📄</div><h3 style='font-size:1.5rem;margin-bottom:0.5rem'>تصدير PDF</h3><p style='opacity:0.8'>تقارير احترافية بالعربية</p></div><div class='card'><div style='font-size:3rem;margin-bottom:1rem'>📊</div><h3 style='font-size:1.5rem;margin-bottom:0.5rem'>تصدير Excel</h3><p style='opacity:0.8'>بيانات منظمة</p></div></div></div></div>
-<div class='slide'><div class='content'><div style='font-size:8rem;margin-bottom:2rem'>🎉</div><h1>شكرا لكم</h1><p style='font-size:2rem;margin:2rem 0;opacity:0.9'>موقع Toya Studio الجديد</p><p style='font-size:2.5rem;font-weight:900;color:#EB3223'>جاهز للانطلاق! 🚀</p><a href='index.html' class='btn' style='display:inline-block;margin-top:3rem;text-decoration:none'>زيارة الموقع</a></div></div>
-</div>
-<div class='nav'><button class='btn' onclick='prev()'>⏮️ السابق</button><button class='btn' onclick='next()'>التالي ⏭️</button></div>
-<script>
-let c=0,s=document.querySelectorAll('.slide'),t=s.length;
-function show(n){s.forEach(e=>e.classList.remove('active'));c=(n+t)%t;s[c].classList.add('active');document.getElementById('current').textContent=c+1}
-function next(){show(c+1)}
-function prev(){show(c-1)}
-document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key===' ')next();else if(e.key==='ArrowLeft')prev()});
-let canvas=document.getElementById('particles'),ctx=canvas.getContext('2d');
-canvas.width=window.innerWidth;canvas.height=window.innerHeight;
-let particles=[];for(let i=0;i<100;i++){particles.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,vx:(Math.random()-0.5)*2,vy:(Math.random()-0.5)*2,r:Math.random()*3+1})}
-function animate(){ctx.clearRect(0,0,canvas.width,canvas.height);ctx.fillStyle='rgba(235,50,35,0.5)';particles.forEach(p=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>canvas.width)p.vx*=-1;if(p.y<0||p.y>canvas.height)p.vy*=-1;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fill()});requestAnimationFrame(animate)}
-animate();
-window.addEventListener('resize',()=>{canvas.width=window.innerWidth;canvas.height=window.innerHeight});
-</script>
-</body>
-</html>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toya Studio - عرض تقديمي احترافي</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: #000;
+            color: white;
+            overflow: hidden;
+        }
+
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .slide-container {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slide {
+            position: absolute;
+            width: 90%;
+            max-width: 1600px;
+            opacity: 0;
+            transform: scale(0.9) rotateY(20deg);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            pointer-events: none;
+        }
+
+        .slide.active {
+            opacity: 1;
+            transform: scale(1) rotateY(0deg);
+            pointer-events: auto;
+        }
+
+        /* Hero Slide */
+        .hero-content {
+            text-align: center;
+            padding: 4rem;
+        }
+
+        .logo-3d {
+            width: 250px;
+            height: 250px;
+            margin: 0 auto 3rem;
+            background: linear-gradient(135deg, #EB3223, #ff6b6b, #EB3223);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6rem;
+            box-shadow: 0 40px 100px rgba(235, 50, 35, 0.8);
+            animation: float 4s ease-in-out infinite, glow 2s ease-in-out infinite;
+            position: relative;
+        }
+
+        .logo-3d::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: linear-gradient(135deg, transparent, rgba(255, 255, 255, 0.3));
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-30px) scale(1.05); }
+        }
+
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 40px 100px rgba(235, 50, 35, 0.8); }
+            50% { box-shadow: 0 40px 120px rgba(235, 50, 35, 1), 0 0 60px rgba(235, 50, 35, 0.6); }
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
